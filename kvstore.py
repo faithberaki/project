@@ -43,7 +43,7 @@ class KVStore:
         index = self.find_key(key)
 
         if index == -1:
-            print()
+            print("NULL")
         else:
             print(self.store[index][1])
 
