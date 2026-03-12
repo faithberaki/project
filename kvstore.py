@@ -8,8 +8,9 @@ class KVStore:
         self.store = []
         self.load()
 
-     def load(self):
-       if not os.path.exists(DB_FILE):
+
+    def load(self):
+        if not os.path.exists(DB_FILE):
             open(DB_FILE, "a").close()
 
         with open(DB_FILE, "r") as f:
@@ -18,12 +19,12 @@ class KVStore:
                 if parts[0] == "SET":
                     self.set(parts[1], parts[2], persist=False)
 
+
     def find_key(self, key):
         for i in range(len(self.store)):
             if self.store[i][0] == key:
                 return i
         return -1
-
 
     def set(self, key, value, persist=True):
         index = self.find_key(key)
